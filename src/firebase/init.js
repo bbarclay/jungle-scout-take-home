@@ -1,15 +1,15 @@
 import firebase from 'firebase';
 import firestore from 'firebase/firestore';
 
-const functions = require('firebase-functions');
+const fbConfig = require('../../.runtimeconfig.json').fb_init;
 
 const config = {
-  apiKey: "AIzaSyDcLX8VD8z8521V1i0FywzyklKz70P7rKg",
-  authDomain: "product-search-4aa25.firebaseapp.com",
-  databaseURL: "https://product-search-4aa25.firebaseio.com",
-  projectId: "product-search-4aa25",
-  storageBucket: "product-search-4aa25.appspot.com",
-  messagingSenderId: "869987483968"
+  apiKey: fbConfig.api_key,
+  authDomain: fbConfig.auth_domain,
+  databaseURL: fbConfig.database_url,
+  projectId: fbConfig.project_id,
+  storageBucket: fbConfig.storage_bucket,
+  messagingSenderId: fbConfig.message_sender_id,
 }
 
 const firebaseApp = firebase.initializeApp(config);
@@ -17,4 +17,3 @@ const firebaseApp = firebase.initializeApp(config);
 firebaseApp.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebaseApp.firestore();
-
