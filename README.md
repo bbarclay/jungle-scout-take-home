@@ -1,6 +1,8 @@
-# amazon-product-search
+# amazon-product-buylist
 
-> An Amazon product search and lister
+> A buylist for activities that finds and lists all the Amazon products you'll need to partake of mentioned activities.
+
+[Visit the live site and give it a whirl.](https://product-search-4aa25.firebaseapp.com)
 
 ## Build Setup
 
@@ -16,15 +18,6 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
