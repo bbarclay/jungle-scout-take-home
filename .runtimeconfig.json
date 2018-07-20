@@ -1,0 +1,16 @@
+{
+  "fb_init": {
+    "auth_domain": "product-search-4aa25.firebaseapp.com",
+    "storage_bucket": "product-search-4aa25.appspot.com",
+    "project_id": "product-search-4aa25",
+    "api_key": "AIzaSyDcLX8VD8z8521V1i0FywzyklKz70P7rKg",
+    "foo": "bar",
+    "database_url": "https://product-search-4aa25.firebaseio.com",
+    "messaging_sender_id": "869987483968"
+  },
+  "amzn": {
+    "access_key": "AKIAJZW5G242SCLCFOEA",
+    "secret_key": "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",
+    "associate_tag": "mobilea0d8bc9-20"
+  }
+}

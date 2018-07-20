@@ -1,0 +1,31 @@
+[debug] [2018-07-11T06:55:23.281Z] ----------------------------------------------------------------------
+[debug] [2018-07-11T06:55:23.288Z] Command:       /Users/jamesromanchuk/.nvm/versions/node/v9.11.2/bin/node /Users/jamesromanchuk/.nvm/versions/node/v9.11.2/bin/firebase functions:shell
+[debug] [2018-07-11T06:55:23.289Z] CLI Version:   3.19.1
+[debug] [2018-07-11T06:55:23.289Z] Platform:      darwin
+[debug] [2018-07-11T06:55:23.289Z] Node Version:  v9.11.2
+[debug] [2018-07-11T06:55:23.290Z] Time:          Tue Jul 10 2018 23:55:23 GMT-0700 (PDT)
+[debug] [2018-07-11T06:55:23.290Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-11T06:55:23.336Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-11T06:55:23.337Z] > authorizing via signed-in user
+[debug] [2018-07-11T06:55:23.341Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/product-search-4aa25  
+  
+ Tue Jul 10 2018 23:55:23 GMT-0700 (PDT)
+[debug] [2018-07-11T06:55:23.882Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-11T06:55:23.883Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/product-search-4aa25/tokens  
+  
+ Tue Jul 10 2018 23:55:23 GMT-0700 (PDT)
+[debug] [2018-07-11T06:55:24.251Z] <<< HTTP RESPONSE 200
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-07-11T06:55:25.971Z] Fetching environment
+[debug] [2018-07-11T06:55:26.013Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/product-search-4aa25  
+  
+ Tue Jul 10 2018 23:55:26 GMT-0700 (PDT)
+[debug] [2018-07-11T06:55:26.352Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-11T06:55:26.352Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/869987483968:getServerAppConfig  
+  
+ Tue Jul 10 2018 23:55:26 GMT-0700 (PDT)
+[debug] [2018-07-11T06:55:26.844Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-11T06:55:26.845Z] Starting @google-cloud/functions-emulator
+[debug] [2018-07-11T06:55:30.506Z] Parsing function triggers
+[info] ✔  functions: findByASIN

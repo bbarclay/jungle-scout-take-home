@@ -1,0 +1,18 @@
+{
+  "amzn": {
+    "associate_tag": "mobilea0d8bc9-20",
+    "access_key": "AKIAJZW5G242SCLCFOEA",
+    "endpoint": "/onca/xml",
+    "secret_key": "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",
+    "base_url": "webservices.amazon.com"
+  },
+  "fb_init": {
+    "storage_bucket": "product-search-4aa25.appspot.com",
+    "database_url": "https://product-search-4aa25.firebaseio.com",
+    "messaging_sender_id": "869987483968",
+    "project_id": "product-search-4aa25",
+    "foo": "bar",
+    "api_key": "AIzaSyDcLX8VD8z8521V1i0FywzyklKz70P7rKg",
+    "auth_domain": "product-search-4aa25.firebaseapp.com"
+  }
+}
