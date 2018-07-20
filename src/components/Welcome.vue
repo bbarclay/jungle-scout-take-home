@@ -10,7 +10,29 @@
         </div>
       </div>
     </div>
-    <div class="row">
+
+      <div class="welcome_loader center-align" v-if="isLoading">
+        <div class="preloader-wrapper big active center-align">
+
+          <div class="spinner-layer spinner-blue-only">
+
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <div class="row" v-else>
       <div
        class="col s4 m4"
 
@@ -18,31 +40,35 @@
        :key="index"
       >
 
-        <div class="card">
-          <div class="card-image welcome_card-image">
-            <img :src="randomImageUrl + index + 1">
+        <router-link
+          class="brand-logo left welcome_buylist-title pink-text text-lighten light"
 
-            <span class="card-title pink-text text-lighten light welcome_card-title">
-              What to
-              <br />
-              buy to...
-            </span>
-          </div>
+          :to="{ name: 'Buylist', params: { id: buylist.id } }"
+        >
 
-          <div class="card-content welcome_card-content">
+          <div class="card hoverable">
+            <div class="card-image welcome_card-image">
+              <img
+              style="min-height: 215.25px"
 
-            <span>
-              <router-link
-               class="brand-logo left welcome_buylist-title pink-text text-lighten light"
-
-               :to="{ name: 'Buylist', params: { id: buylist.id } }"
+              :src="randomImageUrl + buylist.id"
               >
-                {{ buylist.id | titleizeId | capitalize }}
-              </router-link>
-            </span>
 
+              <span class="card-title pink-text text-lighten light welcome_card-title">
+                What to
+                <br />
+                buy to...
+              </span>
+            </div>
+
+            <div class="card-content welcome_card-content">
+              <span>
+                {{ buylist.id | titleizeId | capitalize }}
+              </span>
+            </div>
           </div>
-        </div>
+
+        </router-link>
 
       </div>
     </div>
@@ -60,11 +86,14 @@
 
     data () {
       return {
+        /** @type {boolean} */
+        isLoading: true,
+
         /** @type {array} */
         buylists: [],
 
         /** @type {string} */
-        randomImageUrl: 'https://picsum.photos/400/200/?image=',
+        randomImageUrl: 'https://source.unsplash.com/400x200/?'
       }
     },
 
@@ -96,7 +125,9 @@
       db
         .collection('buylist')
         .get()
-        .then(collections => this.buylists = collections.docs);
+        .then(collections => this.buylists = collections.docs)
+        .finally(() => this.isLoading = false)
+        .catch(error => console.log(error));
     },
   }
 </script>
@@ -109,6 +140,10 @@
     font-size: 100px;
     font-weight: 900;
     line-height: 100px;
+  }
+
+  .welcome_loader {
+    padding-top: 50px;
   }
 
   .welcome_instructions {
@@ -148,14 +183,18 @@
   }
 
   .welcome_card-title {
+    padding: 0;
+
     font-weight: 900;
     text-transform: uppercase;
     font-size: 100px;
     text-overflow: clip;
-    padding: 0;
     line-height: 70px;
+
     opacity: 0.4;
     mix-blend-mode: difference;
+
+    user-select: none;
   }
 
   .welcome_buylist-title {

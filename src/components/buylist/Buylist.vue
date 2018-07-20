@@ -1,5 +1,9 @@
 <template>
   <div class="buylist container">
+    <div v-bind:class="{ 'progress': true, 'buylist_loader-hidden': !isSearching }">
+      <div class="indeterminate"></div>
+    </div>
+
     <ul class="collection with-header">
       <li class="buylist_list-header collection-header center-align orange lighten-5">
         <h4 class="pink-text text-lighten light">
@@ -21,11 +25,10 @@
           <span class="helper-text left-align">
             Search with a 10-character Amazon ASIN number
           </span>
-
         </div>
 
-        <a class="waves-effect waves-light btn" v-on:click="findByASIN">
-          <i class="material-icons left">cloud</i>
+        <a v-bind:class="buttonClass" v-on:click="findByASIN">
+          <i class="material-icons left">search</i>
           search
         </a>
 
@@ -99,6 +102,16 @@ export default {
 
       /** @type {?string} */
       errorMessage: null,
+
+      /** @type {boolean} */
+      isSearching: false,
+    }
+  },
+
+  computed: {
+    buttonClass() {
+      const buttonClass = 'waves-effect waves-light btn';
+      return this.isSearching ? buttonClass + ' disabled' : buttonClass;
     }
   },
 
@@ -109,18 +122,21 @@ export default {
      */
     findByASIN() {
       this.errorMessage = null;
+      this.isSearching = true;
 
       const findByASIN = firebase.functions().httpsCallable('findByASIN');
 
       findByASIN({ asinCode: this.asinCode })
         .then(ret => {
+          this.isSearching = false
           const data = ret.data;
 
           data.errors ?
             this.updateErrorMessage(data.errors.Error) :
             this.updateBuylist(data.item)
         })
-        .catch(err => console.log('Error', err))
+        .finally(() => this.isSearching = false)
+        .catch(err => console.log('Error', err));
     },
 
     /**
@@ -284,5 +300,17 @@ export default {
 
   .buylist .buylist_collection-item {
     border-bottom: none;
+  }
+
+  .buylist .buylist_loader-hidden {
+    visibility: hidden;
+  }
+
+  .buylist_button-disabled {
+    pointer-events: none;
+    background-color: #DFDFDF !important;
+    box-shadow: none;
+    color: #9F9F9F !important;
+    cursor: default;
   }
 </style>
