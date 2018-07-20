@@ -24,13 +24,27 @@ https://product-search-4aa25.firebaseapp.com/get revenge on the hissing cat down
 
 ## Build Setup
 
+
+
 ``` bash
+# clone project into current directory
+git clone git@github.com:romanchukenator/jungle-scout-take-home.git ./
+
 # install dependencies
 npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
+```
+I didn't add the config files for firebase, google cloud functions or my Amazon keys to the .gitignore figuring getting this up and running on your local machine shouldn't be a headache of signing up to a firebase account and going through the hoops of lucking into a set of Amazon keys.
 
+Please don't go around distributing these keys. Please.
+
+## If you're interested...
+
+
+
+``` bash
 # build for production with minification
 npm run build
 

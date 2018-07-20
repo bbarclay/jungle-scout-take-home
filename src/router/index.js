@@ -4,7 +4,6 @@ import Router from 'vue-router';
 import Welcome from '@/components/Welcome';
 import Buylist from '@/components/buylist/Buylist';
 
-
 Vue.use(Router);
 Vue.use(cors);
 
