@@ -51,7 +51,7 @@
               <img
               style="min-height: 215.25px"
 
-              :src="randomImageUrl + buylist.id"
+              :src="randomImageUrl + buylist.id.replace(/-/g, ',')"
               >
 
               <span class="card-title pink-text text-lighten light welcome_card-title">
