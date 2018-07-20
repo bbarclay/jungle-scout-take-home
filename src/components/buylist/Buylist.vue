@@ -23,7 +23,7 @@
             v-model="asinCode"
           >
           <span class="helper-text left-align">
-            Search with a 10-character Amazon ASIN number
+            Search with a 10-character Amazon ASIN code
           </span>
         </div>
 

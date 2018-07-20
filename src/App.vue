@@ -7,7 +7,7 @@
 
     <footer class="footer valign-wrapper">
       <p class="center-align footer_instructions">
-        Do you want to make your own buylist? Easy! Just type your buylist title in your browser's address bar after the backslash!
+        Do you want to make your own buylist? Easy! Just type your buylist title in your browser's address bar after the forward slash!
         <br />
         Example: <span>{{ currentURL }}make some apple cider</span>
       </p>
