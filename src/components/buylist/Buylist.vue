@@ -122,21 +122,26 @@ export default {
      */
     findByASIN() {
       this.errorMessage = null;
-      this.isSearching = true;
 
-      const findByASIN = firebase.functions().httpsCallable('findByASIN');
+      if(this.asinCode) {
+        this.isSearching = true;
 
-      findByASIN({ asinCode: this.asinCode })
-        .then(ret => {
-          this.isSearching = false
-          const data = ret.data;
+        const findByASIN = firebase.functions().httpsCallable('findByASIN');
 
-          data.errors ?
-            this.updateErrorMessage(data.errors.Error) :
-            this.updateBuylist(data.item)
-        })
-        .finally(() => this.isSearching = false)
-        .catch(err => console.log('Error', err));
+        findByASIN({ asinCode: this.asinCode })
+          .then(ret => {
+            this.isSearching = false
+            const data = ret.data;
+
+            data.errors ?
+              this.updateErrorMessage(data.errors.Error) :
+              this.updateBuylist(data.item)
+          })
+          .finally(() => this.isSearching = false)
+          .catch(err => console.log('Error', err));
+      } else {
+        this.errorMessage = 'Please enter an ASIN code before searching.';
+      }
     },
 
     /**
